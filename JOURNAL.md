@@ -124,3 +124,7 @@ Total Time Spent: 4.5 hours (13:30 – 18:00)
 ![Screenshot 2026-10-06 173329](https://halflife.hackclub-assets.com/hackclub-half-life/sessions/i1c8sS9TP89VizwuR9rcA2GsxPRPSWeP/97a053e4c2161e94058e5c0a96b47df0bf23dc48ab6a7f4b91b97c14f925f03d.png)
 
 ![Screenshot 2026-10-06 173449](https://halflife.hackclub-assets.com/hackclub-half-life/sessions/i1c8sS9TP89VizwuR9rcA2GsxPRPSWeP/ffaab20e285c365eb72593de95cbb47b39a0f7d30bb7817842b17ed43c16922b.png)
+
+<img width="940" height="500" alt="image" src="https://github.com/user-attachments/assets/c4caaf7e-2f31-4176-9794-0fafb0e9b1af" />
+
+
