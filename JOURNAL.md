@@ -23,48 +23,86 @@
 **4.5h**
 
 Session 1: Setting Up KiCad, Schematic Design & My First Battle with Footprint Errors
+
+
 Today was all about kicking off Starbie 2.0, the upgraded version of the HackClub original project, now powered by the Seeed Studio XIAO ESP32-C3. The plan was to get everything built in KiCad's schematic editor, clear out electrical errors, map all the physical footprints, and finally push everything into the PCB editor so I can start laying out the board.
+
+
 It turned into a solid 4.5-hour grind (13:30 to 18:00), but I went from having zero files to a fully connected, error-free PCB layout ready for routing! Here is a breakdown of everything that happened, what went wrong, and how I fixed it.
+
+
 Downloading KiCad & Importing Custom Libraries
+
+
 Before drawing a single wire, I had to get the software environment ready. Because Starbie 2.0 uses specific hardware modules, like an I2C 0.96" OLED display and an MPU6050 accelerometer, the standard KiCad built-in library didn't have everything I needed out of the box.
+
+
 	I downloaded KiCad and grabbed custom component libraries (.pretty folders for footprints and .sym files for schematic symbols).
 	I went into KiCad's Library Manager to manually link these imported symbol and footprint paths so they’d actually show up when searching for components.
+
+	
 Drawing the Schematic & Fighting ERC Errors
 Once the canvas was ready, I dropped in the main brain (XIAO ESP32-C3) alongside the rest of Starbie 2.0's hardware lineup:
 	Sensors & Input: DHT11 temperature/humidity sensor, MPU6050 6-DOF gyro, 2x tactile push buttons, and a 5-pin rotary encoder.
 	Outputs & Audio: 6x WS2812B addressable RGB LEDs, a buzzer, and the header connector for the OLED screen.
 	Passives: Decoupling capacitors and pull-up/limiting resistors.
+
+	
 Wiring everything up was smooth until I ran the Electrical Rules Check (ERC), which immediately threw red flags all over my power rails (+3.3V, +5V, and GND).
 The ERC Confusion:
+
+
 KiCad is super picky, it expects every power rail to have a dedicated power output pin driving it. Because the XIAO board feeds power through regular module pins rather than a traditional regulator symbol, KiCad assumed my power lines were floating in mid-air without any power source.
 The Fix (PWR_FLAG):
 I learned about a special KiCad symbol called the PWR_FLAG (Power Flag). It isn't a physical part that gets soldered to the board, it's just a dummy signal for KiCad’s internal checker. Dropping three PWR_FLAG symbols onto the canvas and wiring them to +3.3V, +5V, and GND cleared the ERC errors instantly.
+
+
 Footprint Assignment Chaos
 With the schematic validated, I opened the Footprint Assignment Tool to link every schematic symbol to an actual physical hardware footprint. This step turned out to be a massive game of trial-and-error:
 	Hunting Down the Rotary Encoder:
 I spent way too long trying to find the right footprint for the 5-pin rotary encoder. Typing generic terms like "encoder" into the search bar wasn't pulling up what I needed. I had to manually clear the search filters, navigate into the Rotary_Encoder library category, and find RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm—which matches the exact 12mm vertical knob package I'm using.
+
+
 	Accidental Microchip Packages:
 KiCad assigned some bizarre default footprints to my passive parts. My 12mm buzzer and 470 µF electrolytic capacitor somehow got mapped to SOIC-8 (a tiny 8-pin surface-mount microchip package!). My push buttons were also accidentally mapped to full Cherry MX mechanical keyboard switch footprints.
+
+
 	Cleaning Up the Mappings:
 I manually went line-by-line to correct everything:
 	Resistors (R1, R2): Set to axial through-hole (R_Axial_DIN0204).
 	LEDs (D1–D6): Set to standard 5050 surface-mount addressable LEDs (LED_WS2812B_PLCC4_5.0x5.0mm).
 	Capacitor (C2) & Buzzer (BZ1): Fixed from SOIC-8 to a radial through-hole footprint (CP_Radial_D8.0mm) and a standard 12mm buzzer footprint (Buzzer_12x9.5mm).
+
+	
 Converting to PCB & The 8 Red Pad Errors
 With all footprints assigned, I hit Tools → Update PCB from Schematic (or F8), expecting my board layout to pop open cleanly. Instead, KiCad blocked the export with 8 red errors:
 Why this happened:
 The original Starbie project used a simple 14-pin DIP footprint for the main board. But because Starbie 2.0 takes advantage of additional pin connections on the Seeed XIAO ESP32-C3 symbol (pins 15 through 22 for extra sensing/audio), the schematic symbol had 22 active pins. When KiCad tried to map a 22-pin symbol onto a 14-pin footprint, it freaked out because pads 15–22 physically didn't exist on that DIP layout!
+
+
 The Fix:
 I jumped back into the Footprint Assignment Tool and changed U1's footprint from the old imported DIP model to rf_module:mcu_seed_esp32c3. This footprint includes all 22 surface-mount castellated and bottom pads matching the XIAO board layout.
+
+
 Smooth Sailing into the PCB Editor
 I ran F8 again, and this time the error count dropped to 0!
 There were two minor warnings regarding SW3 pad MP (mechanical mounting pads on the rotary encoder casing that don't have electrical connections in the schematic), but those are strictly mechanical and safe to ignore.
+
+
 I clicked Update PCB, closed the dialog, and boom, all my component footprints popped onto the black PCB canvas connected by green lines. Starbie 2.0 is officially ready for placement and trace routing!
+
+
 Key Lessons Learned Today
 	PWR_FLAG is a lifesaver: If your board gets power through a header or module rather than an on-board regulator symbol, ERC will complain until you manually add power flags.
+	
 	Check pin counts on module footprints: Always make sure your footprint has the exact same number of physical pads as your schematic symbol pins, especially when upgrading a design to use more feature pins on a microcontroller.
+	
 	Don't trust default footprint mappings: Double-check passive footprints before exporting so you don't accidentally try soldering a capacitor onto an IC chip footprint!
+
+
+	
 Total Time Spent: 4.5 hours (13:30 – 18:00)
+
 
 
 ![Screenshot 2026-10-06 143930](https://halflife.hackclub-assets.com/hackclub-half-life/sessions/i1c8sS9TP89VizwuR9rcA2GsxPRPSWeP/fe9e95cfe05c92f8865b4579088ef903983005dbe89eb0194716f4f79c013a6c.png)
