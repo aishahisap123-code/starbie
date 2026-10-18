@@ -27,3 +27,5 @@ Renders/ — 2D/3D front and back PCB renders with custom silkscreen artwork (ST
 Project Guide.md — Step-by-step assembly, soldering, and manufacturing guide
 
 Firmware/ — Arduino IDE starter sketches for OLED graphics, MPU6050 motion tracking, DHT11 environmental readings, WS2812B LEDs, buzzer audio, and rotary menu navigation
+
+BOM/ https://github.com/aishahisap123-code/starbie/blob/main/BOM.md#starcade-35--bill-of-materials
