@@ -28,4 +28,23 @@ Project Guide.md — Step-by-step assembly, soldering, and manufacturing guide
 
 Firmware/ — Arduino IDE starter sketches for OLED graphics, MPU6050 motion tracking, DHT11 environmental readings, WS2812B LEDs, buzzer audio, and rotary menu navigation
 
-BOM/ https://github.com/aishahisap123-code/starbie/blob/main/BOM.md#starcade-35--bill-of-materials
+BOM/ Starcade 35 – bill of materials
+Note
+
+This parts list is mirrored from Half Life. Editing it here will not change the platform's copy, and the next sync overwrites this file.
+
+Week	Tier	Parts funding
+Week 1	Tier 1	$30.00
+Part	What it's for	Qty	Unit	Total	Vendor
+ESP32 c3 mini	The main brain that runs your software, handles Wi-Fi/Bluetooth, and controls all components.	1	$8.34	$8.34	Aliexpress
+MPU-6050 MPU6050 Module	accelerometer and gyro used for tilt-based motion controls in games.	1	$1.73	$1.73	Aliexpress
+DHT11	temp sensor	1	$1.40	$1.40	Aliexpress
+pcb board	pcb	1	$8.67	$8.67	JLCPCB
+0.96 inch OLED	the display	1	$0.93	$0.93	Aliexpress
+rotary encoder	navigation	1	$5.20	$5.20	Aliexpress
+buzzer	make sound	1	$1.82	$1.82	Aliexpress
+buttons	navigation and menu and gameplay	1	$1.61	$1.61	Aliexpress
+Parts subtotal	—	—	—	$29.70	—
+Tax & shipping	—	—	—	$0.00	—
+Total	—	—	—	$29.70	—
+$0.30 left of the tier's funding.
