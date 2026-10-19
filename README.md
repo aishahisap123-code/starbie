@@ -2,6 +2,9 @@
 Starcade is a motion-controlled handheld arcade pet and retro game console. Inspired by classic handhelds and desktop pets, it brings interactive games, motion sensing, and sound effects together in a custom wing-shaped PCB. Instead of relying solely on traditional buttons, you interact with games, menus, and pet reactions by physically tilting, shaking, and rotating the board.
 <img width="1572" height="1010" alt="image" src="https://github.com/user-attachments/assets/d4fed6db-9e43-48d6-8f12-271fad5c3c43" />
 <img width="2335" height="1359" alt="image" src="https://github.com/user-attachments/assets/8dd09dbe-11b5-48da-960b-e21ba7642a11" />
+<img width="3204" height="1644" alt="image" src="https://github.com/user-attachments/assets/dfdf2cfc-3251-4c9d-93b2-51e0c6783e27" />
+<img width="1705" height="1212" alt="image" src="https://github.com/user-attachments/assets/cb9171e5-a2dc-4a1c-94d6-bca4f71deda6" />
+
 
 
 
