@@ -11,6 +11,28 @@ Starcade is a motion-controlled handheld arcade pet and retro game console. Insp
 # What It Is
 Starcade is designed to sit on your desk, display custom animations on a bright OLED screen, and react directly to how you handle it. Tilting, rotating the encoder, pressing action buttons, and listening to sound effects and LED animations are all core to the physical experience.
 
+Virtual Pet Simulator   
+- Walking & Animations: Watch your pet walk back and forth across the screen automatically.   
+- Nap Mode: Put your pet to sleep to recover its energy levels over time.   
+- Stats Tracking: Monitor and update your pet's current Joy, Energy, and Fullness stats, which are saved automatically to the board's non-volatile memory.   
+
+
+Environment & Sensor Monitoring   
+- Temperature & Humidity: Reads ambient room data in real-time using a connected DHT11 sensor.   
+- Tilt Controls: Uses an MPU6050 accelerometer to detect board tilts and shakes for navigating menus and playing games.   
+
+
+Built-In Mini-Games   
+- Dodge Game: An obstacle-avoidance game where you tilt the board to move your player up and down and score points.   
+- Reflex Test: A reaction-speed challenge that tests how fast you can hit the button when the signal goes live.   
+- Snake Game: The classic retro grid-based game where you guide a growing snake to eat food without hitting the walls or its own tail.
+
+
+Hardware & Audio-Visual Extras   
+- NeoPixel Light Show: Dynamic, colorful lighting patterns that cycle across your LED strip.   
+- Sound Effects & Test Mode: Generates various audio tones and alerts through the buzzer for games and button presses.
+
+
 The board includes an ESP32-C3 microcontroller, 0.96" OLED display, 6-axis MPU6050 motion sensor, DHT11 temperature/humidity sensor, addressable WS2812B RGB LEDs, active buzzer, and a rotary encoder inside a compact wing-shaped PCB design. It is USB-C powered and optimized for easy component assembly and custom firmware hacking.
 
 # Why?
