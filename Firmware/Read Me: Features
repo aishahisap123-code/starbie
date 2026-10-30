@@ -1,0 +1,25 @@
+# What the code does:
+
+Virtual Pet Simulator   
+- Walking & Animations: Watch your pet walk back and forth across the screen automatically.   
+- Nap Mode: Put your pet to sleep to recover its energy levels over time.   
+- Stats Tracking: Monitor and update your pet's current Joy, Energy, and Fullness stats, which are saved automatically to the board's non-volatile memory.   
+
+
+
+Environment & Sensor Monitoring   
+- Temperature & Humidity: Reads ambient room data in real-time using a connected DHT11 sensor.   
+- Tilt Controls: Uses an MPU6050 accelerometer to detect board tilts and shakes for navigating menus and playing games.   
+
+
+
+Built-In Mini-Games   
+- Dodge Game: An obstacle-avoidance game where you tilt the board to move your player up and down and score points.   
+- Reflex Test: A reaction-speed challenge that tests how fast you can hit the button when the signal goes live.   
+- Snake Game: The classic retro grid-based game where you guide a growing snake to eat food without hitting the walls or its own tail.
+
+
+
+Hardware & Audio-Visual Extras   
+- NeoPixel Light Show: Dynamic, colorful lighting patterns that cycle across your LED strip.   
+- Sound Effects & Test Mode: Generates various audio tones and alerts through the buzzer for games and button presses.
